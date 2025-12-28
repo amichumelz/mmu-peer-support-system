@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CounselorLink</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 flex h-screen">
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="p-6 text-teal-600 text-xl font-bold">CounselorLink</div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="/" class="flex items-center gap-3 p-3 hover:bg-teal-50 rounded-lg text-gray-700">
+                <i data-lucide="layout-dashboard"></i> Dashboard
+            </a>
+            <a href="/caseload" class="flex items-center gap-3 p-3 hover:bg-teal-50 rounded-lg text-gray-700">
+                <i data-lucide="users"></i> Caseload
+            </a>
+            <a href="/plans" class="flex items-center gap-3 p-3 hover:bg-teal-50 rounded-lg text-gray-700">
+                <i data-lucide="clipboard-list"></i> Action Plans
+            </a>
+            <a href="/schedule" class="flex items-center gap-3 p-3 hover:bg-teal-50 rounded-lg text-gray-700">
+                <i data-lucide="calendar"></i> Schedule
+            </a>
+            <a href="/assignments" class="flex items-center justify-between p-3 hover:bg-teal-50 rounded-lg text-gray-700">
+                <div class="flex items-center gap-3"><i data-lucide="user-plus"></i> Requests</div>
+                <span class="bg-orange-500 text-white text-[10px] px-2 py-0.5 rounded-full">{{ pending_count }}</span>
+            </a>
+            <hr class="my-4 border-gray-100">
+            <a href="/availability" class="flex items-center gap-3 p-3 hover:bg-teal-50 rounded-lg text-gray-700">
+                <i data-lucide="clock"></i> My Availability
+            </a>
+            <a href="/export-data" class="flex items-center gap-3 p-3 hover:bg-teal-50 rounded-lg text-gray-700 text-sm">
+                <i data-lucide="download"></i> Export Reports
+            </a>
+        </nav>
+    </aside>
+    <main class="flex-1 overflow-y-auto bg-gray-50">
+        {% block content %}{% endblock %}
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+=====================================================
+COUNSELORLINK DASHBOARD PROTOTYPE - SETUP GUIDE
+=====================================================
+
+PROJECT OVERVIEW:
+This is a Flask-based web application designed to meet the 
+SRS requirements for the Counselor Dashboard, including 
+Caseload Management, Action Plans, and Data Export.
+
+1. PREREQUISITES:
+   - Python 3.x installed.
+   - VS Code (recommended).
+
+2. SETUP INSTRUCTIONS:
+   Step 1: Open the project folder in your terminal.
+   Step 2: Create a virtual environment:
+           python -m venv .venv
+   Step 3: Activate the virtual environment:
+           - Windows: .venv\Scripts\activate
+           - Mac/Linux: source .venv/bin/activate
+   Step 4: Install Flask:
+           pip install flask
+   Step 5: Run the application:
+           python app.py
+
+3. PROJECT STRUCTURE:
+   - app.py: Main logic and URL routing.
+   - data.py: Mock database (Python lists) for students and plans.
+   - templates/: Folder containing all HTML layouts.
+   - requirements.txt: List of dependencies.
+
+4. IMPLEMENTED SRS FEATURES:
+   - [SRS 1.0] Student Caseload Management
+   - [SRS 2.0] Appointment & Schedule View
+   - [SRS 3.0] Mood & Well-being Threshold Alerts
+   - [SRS 4.0] Therapeutic Action Plans & Progress Tracking
+   - [SRS 5.1] Assignment Verification (Accept/Decline)
+   - [SRS 5.2] Anonymized Data Export (CSV)
+
+5. ACCESSING THE APP:
+   Once the app is running, open your browser and go to:
+   http://127.0.0.1:5000
+=====================================================

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-8">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold text-gray-900">Therapeutic Action Plans</h1>
+        <button class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i> Create New Plan
+        </button>
+    </div>
+
+    <div class="grid gap-6">
+        {% for plan in plans %}
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="font-bold text-lg text-gray-900">{{ plan.student_name }}</h3>
+                    <p class="text-teal-600 text-sm font-medium">Goal: {{ plan.goal }}</p>
+                </div>
+                <span class="text-sm font-bold text-gray-500">{{ plan.progress }}% Complete</span>
+            </div>
+            
+            <div class="w-full bg-gray-100 rounded-full h-2 mb-6">
+                <div class="bg-teal-500 h-2 rounded-full" style="width: {{ plan.progress }}%"></div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Active Interventions</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for item in plan.interventions %}
+                    <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs text-gray-600">
+                        {{ item }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

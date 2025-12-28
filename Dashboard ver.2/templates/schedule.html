@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-8">
+    <h1 class="text-2xl font-bold text-gray-900 mb-2">Schedule</h1>
+    <p class="text-gray-600 mb-8">You have {{ appointments|length }} upcoming sessions.</p>
+
+    <div class="space-y-4">
+        {% for appt in appointments %}
+        <div class="bg-white p-6 rounded-xl border border-gray-200 flex items-center justify-between shadow-sm">
+            <div class="flex items-center gap-6">
+                <div class="text-center">
+                    <div class="text-teal-600 font-bold text-lg leading-none">{{ appt.time.split(' ')[0] }}</div>
+                    <div class="text-gray-500 text-xs uppercase">{{ appt.time.split(' ')[1] }}</div>
+                </div>
+                <div class="h-10 w-px bg-gray-200"></div>
+                <div>
+                    <h3 class="font-bold text-gray-900">{{ appt.studentName }}</h3>
+                    <div class="flex gap-4 text-sm text-gray-500 mt-1">
+                        <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i> {{ appt.location }}</span>
+                        <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-gray-400"></i> {{ appt.duration }} mins</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold 
+                    {% if appt.type == 'crisis' %}bg-red-100 text-red-700{% else %}bg-blue-100 text-blue-700{% endif %}">
+                    {{ appt.type|upper }}
+                </span>
+                <button class="p-2 hover:bg-gray-100 rounded-full text-gray-400"><i data-lucide="more-vertical" class="w-5 h-5"></i></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
