@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Mood Rating Modal -->
+<div id="moodModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn">&times;</button>
+        <h2>How's your feeling today?</h2>
+        <p class="modal-subtitle">Rate your feeling here :)</p>
+        
+        <div class="mood-selector">
+            <div class="mood-option" data-mood="1">
+                <div class="mood-face very-sad">😢</div>
+                <span class="mood-number">1</span>
+            </div>
+            <div class="mood-option" data-mood="2">
+                <div class="mood-face sad">😟</div>
+                <span class="mood-number">2</span>
+            </div>
+            <div class="mood-option" data-mood="3">
+                <div class="mood-face neutral">😐</div>
+                <span class="mood-number">3</span>
+            </div>
+            <div class="mood-option" data-mood="4">
+                <div class="mood-face happy">🙂</div>
+                <span class="mood-number">4</span>
+            </div>
+            <div class="mood-option" data-mood="5">
+                <div class="mood-face very-happy">😊</div>
+                <span class="mood-number">5</span>
+            </div>
+        </div>
+        
+        <button class="confirm-btn" id="confirmBtn" disabled>Confirm</button>
+    </div>
+</div>
+
+<!-- Main Home Content -->
+<div class="home-container">
+    <div class="cards-wrapper">
+        <!-- Forums Card -->
+        <div class="feature-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='forum.jpg') }}" alt="Forums">
+            </div>
+            <a href="/forum" class="card-button">
+                <span class="icon">🔍</span> FORUMS
+            </a>
+        </div>
+
+        <!-- Counselor Card -->
+        <div class="feature-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='counselor.jpg') }}" alt="Counselor">
+            </div>
+            <a href="/counselor" class="card-button">
+                <span class="icon">🔍</span> COUNSELOR
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}Announcement{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='announcement.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="announcement-container">
+    <h1 class="page-title">Announcement</h1>
+    <hr class="title-divider">
+    
+    <div class="announcements-list">
+        <!-- Announcement Item 1 -->
+        <div class="announcement-item">
+            <div class="announcement-icon">
+                <img src="{{ url_for('static', filename='mmu.png') }}" alt="MMU Icon">
+            </div>
+            <div class="announcement-content">
+                <h3 class="announcement-title">
+                    [NOMINATION DAY OFFICIAL RESULT ANNOUNCEMENT] STUDENTS' REPRESENTATIVE COUNCIL GENERAL ELECTION 2025/2026
+                    <span class="pdf-badge">PDF</span>
+                </h3>
+                <div class="announcement-meta">
+                    <span class="meta-item">by STUDENT AFFAIRS DIVISION</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">📅 10 Dec 2025</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">👁️ Views ( 98 )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcement Item 2 -->
+        <div class="announcement-item">
+            <div class="announcement-icon">
+                <img src="{{ url_for('static', filename='mmu.png') }}" alt="MMU Icon">
+            </div>
+            <div class="announcement-content">
+                <h3 class="announcement-title">
+                    Visit Career Connect Job Portal for Internship and Job Placements
+                    <span class="pdf-badge">PDF</span>
+                </h3>
+                <div class="announcement-meta">
+                    <span class="meta-item">by ALUMNI ENGMT, CAREER & ENTR.</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">📅 09 Dec 2025</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">👁️ Views ( 127 )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcement Item 3 -->
+        <div class="announcement-item">
+            <div class="announcement-icon">
+                <img src="{{ url_for('static', filename='mmu.png') }}" alt="MMU Icon">
+            </div>
+            <div class="announcement-content">
+                <h3 class="announcement-title">
+                    MUET REGISTRATION FOR SESSION 1, 2026 (APRIL 2026) FOR TEST CENTRE IN MELAKA & CYBERJAYA (MMU CANDIDATES)
+                    <span class="pdf-badge">PDF</span>
+                </h3>
+                <div class="announcement-meta">
+                    <span class="meta-item">by ACADEMIC REGISTRAR OFFICE</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">📅 09 Dec 2025</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">👁️ Views ( 263 )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcement Item 4 -->
+        <div class="announcement-item">
+            <div class="announcement-icon">
+                <img src="{{ url_for('static', filename='mmu.png') }}" alt="MMU Icon">
+            </div>
+            <div class="announcement-content">
+                <h3 class="announcement-title">
+                    Sertai Pertandingan Poster Digital/Video Pendek Sempena Kempen Internet Selamat 2025!
+                    <span class="pdf-badge">PDF</span>
+                </h3>
+                <div class="announcement-meta">
+                    <span class="meta-item">by Faculty of Business</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">📅 09 Dec 2025</span>
+                    <span class="meta-separator">-</span>
+                    <span class="meta-item">👁️ Views ( 31 )</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='announcement.js') }}"></script>
+{% endblock %}

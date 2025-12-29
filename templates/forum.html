@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block title %}Forums{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='forum.css') }}">
+{% endblock %}
+
+{% block topbar_extra %}
+<input type="text" id="forumSearch" placeholder="Search forum..." class="forum-search-input">
+{% endblock %}
+
+{% block content %}
+<div class="forum-container">
+    <!-- Sticky Header -->
+    <div class="forum-header">
+        <h1 class="forum-title">Forums</h1>
+    </div>
+    
+    <!-- Sticky Create Post Input -->
+    <div class="create-post-trigger" id="createPostTrigger">
+        <div class="user-avatar">
+            <img src="{{ url_for('static', filename='profileavatar.png') }}" alt="Avatar">
+        </div>
+        <input type="text" placeholder="What's on your mind now?" readonly>
+    </div>
+    
+    <!-- Scrollable Forum Feed -->
+    <div class="forum-feed" id="forumFeed">
+        <!-- Sample Post 1 -->
+        <div class="forum-post" data-post-id="1">
+            <div class="post-header">
+                <img src="{{ url_for('static', filename='profileavatar.png') }}" class="post-avatar">
+                <div class="post-info">
+                    <h3>Post 1</h3>
+                    <p class="post-meta">Just now</p>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Forums available today!</p>
+                <img src="{{ url_for('static', filename='forumsample.png') }}" class="post-image">
+            </div>
+            <div class="post-footer">
+                <div class="post-stats">
+                    <span>👍 119</span>
+                    <span>161 comments</span>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn like-btn" data-post-id="1">
+                        <span class="icon">👍</span> Like
+                    </button>
+                    <button class="action-btn comment-btn" data-post-id="1">
+                        <span class="icon">💬</span> Comment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Post Modal -->
+<div id="createPostModal" class="modal-overlay hidden">
+    <div class="modal-content create-post-modal">
+        <div class="modal-header">
+            <h2>Create Post</h2>
+            <button class="modal-close" id="closeCreatePost">×</button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="post-author">
+                <img src="{{ url_for('static', filename='profileavatar.png') }}" alt="Avatar" class="author-avatar">
+                <select id="postAuthor" class="author-select">
+                    <option value="anonymous" selected>Anonymous</option>
+                    <option value="username">Username</option>
+                </select>
+            </div>
+            
+            <textarea id="postContent" placeholder="What's on your mind now?" class="post-textarea"></textarea>
+            
+            <div class="post-attachments" id="postAttachments"></div>
+            
+            <div class="post-tools">
+                <button class="tool-btn" id="addPhoto" title="Add Photo/Video">
+                    <span><img src="{{ url_for('static', filename='photoattach.png') }}"  style="height: 15px;width: 15px;" class="icon"></span>
+                    
+                </button>
+                <button class="tool-btn" id="addFile" title="Add File">
+                    <span><img src="{{ url_for('static', filename='fileattach.png') }}"  style="height: 15px;width: 15px;" class="icon"></span>
+                </button>
+                <input type="file" id="photoInput" accept="image/*,video/*" multiple hidden>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" multiple hidden>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="post-submit-btn" id="submitPost">Post</button>
+        </div>
+    </div>
+</div>
+
+<!-- Comment Modal -->
+<div id="commentModal" class="modal-overlay hidden">
+    <div class="modal-content comment-modal">
+        <div class="modal-header">
+            <h2>Comments</h2>
+            <button class="modal-close" id="closeCommentModal">×</button>
+        </div>
+        
+        <div class="modal-body">
+            <!-- Post Content Preview -->
+            <div class="comment-post-preview" id="commentPostPreview"></div>
+            
+            <!-- Comments List -->
+            <div class="comments-list" id="commentsList"></div>
+            
+            <!-- Add Comment -->
+            <div class="add-comment-section">
+                <img src="{{ url_for('static', filename='profileavatar.png') }}" alt="Avatar" class="comment-avatar">
+                <div class="comment-input-wrapper">
+                    <select id="commentAuthor" class="comment-author-select">
+                        <option value="anonymous" selected>Anonymous</option>
+                        <option value="username">Username</option>
+                    </select>
+                    <textarea id="commentContent" placeholder="Write a comment..." class="comment-textarea"></textarea>
+                    <div class="comment-tools">
+                        <button class="tool-btn" id="addCommentPhoto" title="Add Photo">
+                            <span><img src="{{ url_for('static', filename='photoattach.png') }}"  style="height: 15px;width: 15px;" class="icon"></span>
+                        </button>
+                        <input type="file" id="commentPhotoInput" accept="image/*" multiple hidden>
+                        <button class="comment-submit-btn" id="submitComment">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='forum.js') }}"></script>
+{% endblock %}

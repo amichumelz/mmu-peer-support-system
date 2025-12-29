@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1 class="page-title">Profile</h1>
+    
+    <div class="profile-content">
+        <!-- Left Side - Profile Picture and Username -->
+        <div class="profile-left">
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='profileavatar.png') }}" alt="Profile Picture" id="profileImage">
+            </div>
+            
+            <div class="profile-info">
+                <h2 class="level-username">Lv 3 Username</h2>
+                
+                <!-- Interest Tags -->
+                <div class="interest-tags">
+                    <span class="tag">Interest 1 <button class="remove-tag">&times;</button></span>
+                    <span class="tag">Interest 2 <button class="remove-tag">&times;</button></span>
+                    <span class="tag">Interest 3 <button class="remove-tag">&times;</button></span>
+                    <button class="add-tag-btn" id="addTagBtn">+</button>
+                </div>
+            </div>
+            
+            <!-- New Label Modal -->
+            <div id="labelModal" class="label-modal hidden">
+                <div class="label-modal-content">
+                    <div class="label-modal-header">
+                        <h3>New Label</h3>
+                        <button class="close-label-btn" id="closeLabelBtn">&times;</button>
+                    </div>
+                    <p class="label-subtitle">**Only 10 characters per label</p>
+                    <input type="text" id="labelInput" class="label-input" placeholder="Type your new label here..." maxlength="10">
+                    <button class="add-label-btn" id="addLabelBtn">Add</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Profile Fields -->
+        <div class="profile-right">
+            <!-- Programme Field -->
+            <div class="profile-field">
+                <label>Programme Taken in MMU:</label>
+                <div class="field-content">
+                    <input type="text" class="field-input" id="programmeInput" value="Bachelor of Computer Science" readonly>
+                    <button class="edit-btn" data-field="programme">
+                        <img src="{{ url_for('static', filename='edit.png') }}" alt="Edit" class="edit-icon">
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Location Field -->
+            <div class="profile-field">
+                <label>Location:</label>
+                <div class="field-content">
+                    <input type="text" class="field-input" id="locationInput" value="Cyberjaya" readonly>
+                    <button class="edit-btn" data-field="location">
+                        <img src="{{ url_for('static', filename='edit.png') }}" alt="Edit" class="edit-icon">
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Description Field -->
+            <div class="profile-field">
+                <label>Description:</label>
+                <div class="field-content">
+                    <textarea class="field-textarea" id="descriptionInput" readonly> Hi! A student from MMU here :) </textarea>
+                    <button class="edit-btn" data-field="description">
+                        <img src="{{ url_for('static', filename='edit.png') }}" alt="Edit" class="edit-icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='profile.js') }}"></script>
+{% endblock %}

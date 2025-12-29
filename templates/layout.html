@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MMU Digital Peer Support System{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="nav-open">
+
+<!-- TOP NAVBAR -->
+<header class="topbar">
+    <div class="topbar-left">
+        <img src="{{ url_for('static', filename='mmu.png') }}" class="logo">
+        &nbsp;&nbsp;&nbsp;
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <!-- for forum search -->
+    {% block topbar_extra %}{% endblock %}
+
+    <div class="topbar-right">
+        <button class="icon-btn">🔔</button>
+        <a href="/logout">
+            <button class="logout-btn"><img src="{{ url_for('static', filename='logout.png') }}" class="logo"></button>
+        </a>
+    </div>
+</header>
+
+<!-- SIDEBAR  -->
+<aside class="sidebar" id="sidebar">
+    <br/>
+    <nav>
+        <a href="/" class="nav-item {% if active_page == 'home' %}active{% endif %}">
+            <img src="{{ url_for('static', filename='home.png') }}" class="logo"> <strong>Home</strong>
+        </a>
+
+        <a href="/forum" class="nav-item {% if active_page == 'forums' %}active{% endif %}">
+            <img src="{{ url_for('static', filename='forum.png') }}" class="logo"> <strong>Forums</strong>
+        </a>
+
+        <a href="/matchup" class="nav-item {% if active_page == 'matchup' %}active{% endif %}">
+            <img src="{{ url_for('static', filename='matchup.png') }}" class="logo"> <strong>Match Up</strong>
+        </a>
+
+        <a href="/chats" class="nav-item {% if active_page == 'chats' %}active{% endif %}">
+            <img src="{{ url_for('static', filename='chat.png') }}" class="logo"> <strong>Chats</strong>
+        </a>
+
+        <a href="/counselor" class="nav-item {% if active_page == 'counselor' %}active{% endif %}">
+            <img src="{{ url_for('static', filename='counselor.png') }}" class="logo"> <strong>Counselor</strong>
+        </a>
+
+        <a href="/announcement" class="nav-item {% if active_page == 'announcement' %}active{% endif %}">
+            <img src="{{ url_for('static', filename='announcement.png') }}" class="logo"> <strong>Announcement</strong>
+        </a>
+    </nav>
+
+    <div class="profile-section">
+        <a href="/profile" class="profile-btn">
+            <img src="{{ url_for('static', filename='profile.png') }}" class="logo"> <strong>Profile</strong>
+        </a>
+    </div>
+</aside>
+
+<!-- PAGE CONTENT -->
+<main class="content">
+    {% block content %}{% endblock %}
+</main>
+
+<script src="{{ url_for('static', filename='layout.js') }}"></script>
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>
