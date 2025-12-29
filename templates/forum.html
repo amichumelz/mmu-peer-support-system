@@ -35,6 +35,7 @@
                     <h3>Post 1</h3>
                     <p class="post-meta">Just now</p>
                 </div>
+                <button class="post-options" data-post-id="1">⋯</button>
             </div>
             <div class="post-content">
                 <p>Forums available today!</p>
@@ -82,7 +83,6 @@
             <div class="post-tools">
                 <button class="tool-btn" id="addPhoto" title="Add Photo/Video">
                     <span><img src="{{ url_for('static', filename='photoattach.png') }}"  style="height: 15px;width: 15px;" class="icon"></span>
-                    
                 </button>
                 <button class="tool-btn" id="addFile" title="Add File">
                     <span><img src="{{ url_for('static', filename='fileattach.png') }}"  style="height: 15px;width: 15px;" class="icon"></span>
@@ -130,6 +130,53 @@
                         <button class="comment-submit-btn" id="submitComment">Send</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Report Modal -->
+<div id="reportModal" class="modal-overlay hidden">
+    <div class="modal-content report-modal">
+        <div class="modal-header">
+            <h2>Report</h2>
+            <button class="modal-close" id="closeReportModal">×</button>
+        </div>
+        
+        <div class="modal-body">
+            <h3 class="report-title">Why are you reporting this?</h3>
+            
+            <div class="report-options">
+                <button class="report-option-btn" data-reason="bullying">
+                    <span>Bullying, harassment or abuse</span>
+                    <span class="arrow">›</span>
+                </button>
+                <br>
+                <button class="report-option-btn" data-reason="suicide">
+                    <span>Suicide or self-harm</span>
+                    <span class="arrow">›</span>
+                </button>
+                <br>
+                <button class="report-option-btn" data-reason="violent">
+                    <span>Violent, hateful or disturbing content</span>
+                    <span class="arrow">›</span>
+                </button>
+                <br>
+                <button class="report-option-btn" data-reason="restricted">
+                    <span>Selling or promoting restricted items</span>
+                    <span class="arrow">›</span>
+                </button>
+                <br>
+                <button class="report-option-btn" data-reason="adult">
+                    <span>Adult content</span>
+                    <span class="arrow">›</span>
+                </button>
+                <br>
+                <button class="report-option-btn" data-reason="scam">
+                    <span>Scam, fraud or false information</span>
+                    <span class="arrow">›</span>
+                </button>
+                <br>
             </div>
         </div>
     </div>
